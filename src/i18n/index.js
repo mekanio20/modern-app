@@ -1,0 +1,58 @@
+import { createI18n } from 'vue-i18n'
+import { settings } from '../stores/settings'
+
+const messages = {
+  tk: {
+    home: 'Baş sahypa', menu: 'Menýu', categories: 'Kategoriýalar', all: 'Hemmesi',
+    add: 'Goş', newArticle: 'Täze makala', editArticle: 'Makalany üýtget',
+    title: 'Sözbaşy', description: 'Beýany', image: 'Surat',
+    selectImage: 'Surat saýla', removeImage: 'Suraty aýyr',
+    category: 'Kategoriýa', noCategory: 'Kategoriýasyz',
+    save: 'Ýatda sakla', delete: 'Poz', edit: 'Üýtget',
+    confirmDelete: 'Pozmaga ynamyňyz barmy?',
+    confirmDeleteCategory: 'Kategoriýa pozulsynmy? Makalalar saklanar.',
+    empty: 'Heniz makala ýok', titleRequired: 'Sözbaşy hökman',
+    newCategory: 'Täze kategoriýa', descPlaceholder: 'Makalanyň mazmuny...',
+    appNameLabel: 'Programmanyň ady', logo: 'Logo', changeLogo: 'Logony üýtget',
+    resetLogo: 'Başlangyç logo', language: 'Dil', theme: 'Tema',
+    light: 'Ak', dark: 'Garaňky', about: 'Programma hakda', back: 'Yza',
+    aboutText: 'Vue 3, Capacitor, Tailwind we IndexedDB bilen ýasalan programma.',
+    version: 'Wersiýa', sizeSmall: 'Kiçi', sizeNormal: 'Adaty', sizeLarge: 'Uly', sizeHuge: 'Has uly',
+    themes: 'Temalar', presetThemes: 'Taýýar temalar', myThemes: 'Meniň temalarym',
+    newTheme: 'Täze tema', editTheme: 'Temany üýtget', themeName: 'Temanyň ady',
+    themeLight: 'Ýagty', themeDark: 'Garaňky', themeSepia: 'Sepiýa',
+    secHeader: 'Ýokarky zolak', secPage: 'Sahypa', secCards: 'Kartlar, menýu, aşaky zolak', secAccent: 'Düwmeler we nyşanlar',
+    colorBg: 'Fon', colorText: 'Tekst', colorButton: 'Düwme reňki', colorButtonText: 'Düwme teksti',
+    textColor: 'Tekst reňki', resetColor: 'Reňki aýyr', notFound: 'Makala tapylmady',
+  },
+  ru: {
+    home: 'Главная', menu: 'Меню', categories: 'Категории', all: 'Все',
+    add: 'Добавить', newArticle: 'Новая статья', editArticle: 'Редактировать статью',
+    title: 'Заголовок', description: 'Описание', image: 'Изображение',
+    selectImage: 'Выбрать фото', removeImage: 'Удалить фото',
+    category: 'Категория', noCategory: 'Без категории',
+    save: 'Сохранить', delete: 'Удалить', edit: 'Изменить',
+    confirmDelete: 'Вы уверены, что хотите удалить?',
+    confirmDeleteCategory: 'Удалить категорию? Статьи сохранятся.',
+    empty: 'Статей пока нет', titleRequired: 'Заголовок обязателен',
+    newCategory: 'Новая категория', descPlaceholder: 'Текст статьи...',
+    appNameLabel: 'Название приложения', logo: 'Логотип', changeLogo: 'Сменить логотип',
+    resetLogo: 'Логотип по умолчанию', language: 'Язык', theme: 'Тема',
+    light: 'Светлая', dark: 'Тёмная', about: 'О программе', back: 'Назад',
+    aboutText: 'Приложение на Vue 3, Capacitor, Tailwind и IndexedDB.',
+    version: 'Версия', sizeSmall: 'Мелкий', sizeNormal: 'Обычный', sizeLarge: 'Крупный', sizeHuge: 'Огромный',
+    themes: 'Темы', presetThemes: 'Готовые темы', myThemes: 'Мои темы',
+    newTheme: 'Новая тема', editTheme: 'Изменить тему', themeName: 'Название темы',
+    themeLight: 'Светлая', themeDark: 'Тёмная', themeSepia: 'Сепия',
+    secHeader: 'Верхняя панель', secPage: 'Страница', secCards: 'Карточки, меню, нижняя панель', secAccent: 'Кнопки и акценты',
+    colorBg: 'Фон', colorText: 'Текст', colorButton: 'Цвет кнопки', colorButtonText: 'Текст кнопки',
+    textColor: 'Цвет текста', resetColor: 'Сбросить цвет', notFound: 'Статья не найдена',
+  },
+}
+
+export const i18n = createI18n({
+  legacy: false,
+  locale: settings.lang,
+  fallbackLocale: 'tk',
+  messages,
+})

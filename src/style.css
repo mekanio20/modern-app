@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+/* Renk rolleri: değerleri aktif tema belirler (src/themes.js -> CSS değişkenleri). */
+@theme inline {
+  --color-head: var(--c-head);
+  --color-head-text: var(--c-head-text);
+  --color-page: var(--c-page);
+  --color-page-text: var(--c-page-text);
+  --color-card: var(--c-card);
+  --color-card-text: var(--c-card-text);
+  --color-accent: var(--c-accent);
+  --color-accent-text: var(--c-accent-text);
+  --color-muted: var(--c-muted);
+  --color-line: var(--c-line);
+  --color-soft: var(--c-soft);
+}
+
+:root { /* tema yüklenmeden önceki yedek değerler (açık tema) */
+  --c-head: #4a4f58; --c-head-text: #f3f4f5; --c-page: #e7e8ea; --c-page-text: #2a2c31;
+  --c-card: #f3f4f5; --c-card-text: #2a2c31; --c-accent: #4a4f58; --c-accent-text: #f3f4f5;
+  --c-muted: #6f7580; --c-line: #cfd2d6; --c-soft: #dedfe2;
+}
+
+html, body, #app { height: 100%; }
+html { font-size: 17px; }
+body {
+  @apply bg-page text-page-text;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Zengin metin (Tiptap / makala görünümü) */
+.rich { line-height: 1.65; word-break: break-word; }
+.rich p { margin: 0 0 .6em; }
+.rich ul { list-style: disc; padding-left: 1.4em; margin: 0 0 .6em; }
+.rich ol { list-style: decimal; padding-left: 1.4em; margin: 0 0 .6em; }
+.rich h2 { font-size: 1.4em; font-weight: 700; margin: .8em 0 .4em; }
+.rich blockquote { border-left: 3px solid var(--c-line); padding-left: .8em; color: var(--c-muted); font-style: italic; margin: 0 0 .6em; }
+.rich a { color: var(--c-accent); text-decoration: underline; }
+.ProseMirror { outline: none; min-height: 12rem; }
+.ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder); float: left; height: 0; pointer-events: none; color: var(--c-muted);
+}
