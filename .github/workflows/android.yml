@@ -27,7 +27,9 @@ jobs:
           distribution: temurin
           java-version: 21
 
-      - uses: android-actions/setup-android@v3
+      # ubuntu-latest'te Android SDK hazır gelir; yalnızca lisansları kabul et
+      - name: Accept Android SDK licenses
+        run: yes | sdkmanager --licenses > /dev/null || true
 
       - name: Gradle cache
         uses: gradle/actions/setup-gradle@v4
@@ -42,7 +44,9 @@ jobs:
 
       - name: Build debug APK
         working-directory: android
-        run: ./gradlew assembleDebug
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleDebug
 
       - uses: actions/upload-artifact@v4
         with:
@@ -53,7 +57,9 @@ jobs:
       - name: Build release APK
         if: env.HAS_KEYSTORE == 'true'
         working-directory: android
-        run: ./gradlew assembleRelease
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleRelease
 
       - name: Sign release APK
         if: env.HAS_KEYSTORE == 'true'

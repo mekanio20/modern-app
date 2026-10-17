@@ -10,6 +10,7 @@
     "cap:sync": "vite build && cap sync android",
     "cap:open": "cap open android"
   },
+  "packageManager": "yarn@4.9.4",
   "dependencies": {
     "@capacitor/android": "^8.5.3",
     "@capacitor/cli": "^8.5.3",
@@ -29,6 +30,5 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.10",
     "vite": "^8.3.4"
-  },
-  "packageManager": "yarn@4.9.4+sha512.7b1cb0b62abba6a537b3a2ce00811a843bea02bcf53138581a6ae5b1bf563f734872bd47de49ce32a9ca9dcaff995aa789577ffb16811da7c603dcf69e73750b"
+  }
 }
